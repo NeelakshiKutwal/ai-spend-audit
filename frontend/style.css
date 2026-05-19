@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #141e30, #243b55);
+    min-height: 100vh;
+    padding: 40px;
+    color: white;
+}
+
+.container {
+    max-width: 700px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.3);
+}
+
+h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #d1d5db;
+    margin-bottom: 35px;
+    line-height: 1.5;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 8px;
+    margin-top: 18px;
+    font-weight: bold;
+}
+
+input,
+select {
+    padding: 14px;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    outline: none;
+    background: rgba(255,255,255,0.15);
+    color: rgb(5, 5, 5);
+}
+
+input::placeholder {
+    color: #d1d5db;
+}
+
+button {
+    margin-top: 30px;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    background: #00c896;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    background: #00b386;
+}
+
+#result {
+    margin-top: 40px;
+}
+
+.result-card {
+    background: #ffffff;
+    color: #111827;
+    padding: 30px;
+    border-radius: 18px;
+    margin-top: 20px;
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.25);
+}
+
+#result h2 {
+    color: #111827;
+}
+.result-card h2 {
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+
+.result-item {
+    margin-bottom: 18px;
+    line-height: 1.7;
+    color: #111827;
+    font-size: 26px;
+}
+
+.savings {
+    color: #059669;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.recommendation {
+    background: #f3f4f6;
+    color: #111827;
+    border-left: 5px solid #00c896;
+    padding: 18px;
+    border-radius: 12px;
+    margin-top: 18px;
+    line-height: 1.7;
+}
+
+@media(max-width: 768px) {
+
+    body {
+        padding: 20px;
+    }
+
+    .container {
+        padding: 25px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+}
+.back-button {
+    display: inline-block;
+    margin-top: 30px;
+    text-decoration: none;
+    color: white;
+    background: #00c896;
+    padding: 14px 22px;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: 0.3s;
+
+}
+
+.back-button:hover {
+    background: #00b386;
+    transform: translateY(-2px);
+}

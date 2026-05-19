@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Spend Audit</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>AI Spend Audit</h1>
+
+        <p class="subtitle">
+            Discover if your startup is overspending on AI tools.
+        </p>
+
+        <form id="auditForm">
+
+            <label>AI Tool</label>
+
+            <select id="tool">
+
+                <option value="ChatGPT">ChatGPT</option>
+
+                <option value="Claude">Claude</option>
+
+                <option value="Cursor">Cursor</option>
+
+                <option value="GitHub Copilot">GitHub Copilot</option>
+
+            </select>
+
+            <label>Plan</label>
+
+            <select id="plan">
+
+                <option value="Plus">Plus</option>
+
+                <option value="Team">Team</option>
+
+                <option value="Business">Business</option>
+
+                <option value="Enterprise">Enterprise</option>
+
+            </select>
+
+            <label>Monthly Spend ($)</label>
+
+            <input type="number" id="spend" placeholder="Enter monthly spend">
+
+            <label>Team Size</label>
+
+            <input type="number" id="teamSize" placeholder="Enter team size">
+
+            <button type="submit">Generate Audit</button>
+
+        </form>
+
+        <div id="result"></div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
