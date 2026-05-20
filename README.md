@@ -3,31 +3,44 @@
 ## Developed By
 Neelakshi Kutwal
 
+---
+
+## Live Demo
+https://ai-spend-audit-beta-nine.vercel.app
+
+---
+
 ## Project Overview
-AI Spend Audit is a web-based application designed to help users track, analyze, and optimize their spending on AI tools and subscriptions.
+AI Spend Audit is a lightweight web application that helps developers and small teams analyze their spending on AI tools such as ChatGPT, Claude, Cursor, and others.
 
-The platform provides users with a clear understanding of where their money is being spent across various AI services and helps identify opportunities to reduce unnecessary expenses.
+It provides instant cost optimization insights and highlights potential savings opportunities based on usage patterns.
 
-This project focuses on improving financial awareness and cost efficiency for individuals and businesses using multiple AI platforms.
+This tool is designed as a decision-support system for reducing unnecessary AI subscription costs.
+
+---
 
 ## Problem Statement
-Many users subscribe to multiple AI tools without properly tracking their monthly or yearly expenses. Over time, this leads to:
-- Unnecessary recurring costs  
-- Duplicate tool subscriptions  
-- Poor visibility into AI spending  
-- Difficulty in budget management  
+Most developers and startups use multiple AI tools without tracking actual monthly spending efficiency.
 
-AI Spend Audit solves this problem by centralizing AI expense tracking and generating useful insights.
+This leads to:
+- Hidden subscription waste
+- Overpaying for unused plans
+- Lack of visibility into AI costs
+- Poor budgeting decisions
 
-## Features
-- AI tool expense tracking  
-- Monthly spending overview  
-- Cost analysis dashboard  
-- Subscription management  
-- Budget optimization suggestions  
-- Report generation  
-- User-friendly interface  
-- Responsive frontend design  
+AI Spend Audit solves this by giving an instant financial optimization report.
+
+---
+
+## Key Features
+- AI tool selection-based audit system
+- Plan-level cost optimization suggestions
+- Monthly and annual savings estimation
+- Instant result generation (no login required)
+- Shareable audit result links
+- Persistent form inputs using localStorage
+
+---
 
 ## Tech Stack
 
@@ -40,66 +53,65 @@ Backend:
 - Node.js
 - Express.js
 
-Data Storage:
-- JSON file based storage
+Data:
+- JSON-based storage
 
-Version Control:
-- Git
-- GitHub
+Deployment:
+- Vercel
 
-## Project Structure
-frontend/
-├── index.html
-├── result.html
-├── script.js
-├── result.js
-└── style.css
+---
 
-server.js
-reports.json
-README.md
+## Architecture
+- User fills audit form
+- Data sent to Express backend via API
+- Backend applies rule-based audit engine
+- Response returned with savings + recommendations
+- Frontend renders result page dynamically
 
-## Installation & Setup
+---
 
-Step 1: Clone the repository
-git clone https://github.com/NeelakshiKutwal/ai-spend-audit.git
+## Decisions & Trade-offs
+1. Chose rule-based engine instead of ML model for accuracy and transparency
+2. Used localStorage instead of database for faster MVP development
+3. Selected Express.js for simplicity and fast backend setup
+4. Avoided authentication to keep user friction low
+5. Used vanilla JS instead of React to reduce complexity
 
-Step 2: Move into project folder
-cd ai-spend-audit
+---
 
-Step 3: Install dependencies
-npm install
+## Challenges
+- Designing meaningful audit logic without overcomplicating
+- Handling data flow between frontend and backend
+- Ensuring consistent result rendering across pages
 
-Step 4: Run the server
-node server.js
+---
 
-## Future Enhancements
-- User Authentication System  
-- Database Integration  
-- AI-Based Spending Recommendations  
-- Export Reports as PDF  
-- Charts & Data Visualization  
-- Cloud Deployment  
-- Real-time Analytics  
+## Future Improvements
+- Add database integration (PostgreSQL)
+- Introduce user accounts
+- Add AI-based recommendations
+- Improve visualization with charts
+- Add PDF export of reports
+
+---
 
 ## Learning Outcomes
-- Full-stack project structure  
-- Backend API handling  
-- Frontend and backend integration  
-- Expense analysis logic  
-- Git & GitHub workflow  
-- Documentation practices  
-- Project deployment preparation  
+- Full-stack application development
+- API design and integration
+- Frontend state management
+- Real-world product thinking
+- Deployment workflow using Vercel
+
+---
+
+## Screenshots / Demo
+<img width="575" height="546" alt="Screenshot 2026-05-20 133217" src="https://github.com/user-attachments/assets/57772959-9764-4380-a2b0-25144f429753" />
+
+
+<img width="509" height="605" alt="Screenshot 2026-05-20 133202" src="https://github.com/user-attachments/assets/d47ec1ae-2d96-46f3-8f6c-e2a1a96dbdef" />
+
+---
 
 ## Author
-Neelakshi Kutwal  
-Computer Science Engineering (AI & DS)
-
-Interests:
-- Full Stack Development  
-- Data Analytics  
-- Artificial Intelligence  
-- Financial Technology Solutions  
-
-## License
+Neelakshi Kutwal
 This project is for educational and learning purposes.
