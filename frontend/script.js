@@ -33,18 +33,38 @@ teamSizeInput.addEventListener("input", () => {
     localStorage.setItem("teamSize", teamSizeInput.value);
 });
 
-form.addEventListener("submit", function(event) {
+document.getElementById("auditForm").addEventListener("submit", async (e) => {
 
-    event.preventDefault();
+    e.preventDefault();
 
-    localStorage.setItem("tool", toolInput.value);
+    const tool = document.getElementById("tool").value;
+    const plan = document.getElementById("plan").value;
+    const spend = document.getElementById("spend").value;
+    const teamSize = document.getElementById("teamSize").value;
 
-    localStorage.setItem("plan", planInput.value);
+    const response = await fetch("/audit", {
 
-    localStorage.setItem("spend", spendInput.value);
+        method: "POST",
 
-    localStorage.setItem("teamSize", teamSizeInput.value);
+        headers: {
+            "Content-Type": "application/json"
+        },
 
-    window.location.href = "/result.html";
+        body: JSON.stringify({
+            tool,
+            plan,
+            spend,
+            teamSize
+        })
+
+    });
+
+    const data = await response.json();
+
+    const auditId = Date.now();
+
+    localStorage.setItem(`audit-${auditId}`, JSON.stringify(data));
+
+    window.location.href = `/result.html?id=${auditId}`;
 
 });

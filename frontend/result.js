@@ -1,61 +1,45 @@
-window.addEventListener("load", async () => {
+const params = new URLSearchParams(window.location.search);
 
-    const tool = localStorage.getItem("tool");
-    const plan = localStorage.getItem("plan");
-    const spend = localStorage.getItem("spend");
-    const teamSize = localStorage.getItem("teamSize");
+const auditId = params.get("id");
 
-    const response = await fetch("/audit", {
+const auditData = JSON.parse(
+    localStorage.getItem(`audit-${auditId}`)
+);
 
-        method: "POST",
-
-        headers: {
-            "Content-Type": "application/json"
-        },
-
-        body: JSON.stringify({
-            tool,
-            plan,
-            spend,
-            teamSize
-        })
-
-    });
-
-    const data = await response.json();
+if (auditData) {
 
     document.getElementById("result").innerHTML = `
 
         <div class="result-card">
 
             <div class="result-item">
-                <strong>AI Tool:</strong> ${data.tool}
+                <strong>AI Tool:</strong> ${auditData.tool}
             </div>
 
             <div class="result-item">
-                <strong>Current Plan:</strong> ${data.currentPlan}
+                <strong>Current Plan:</strong> ${auditData.currentPlan}
             </div>
 
             <div class="recommendation">
                 <strong>Recommendation:</strong><br><br>
-                ${data.recommendation}
+                ${auditData.recommendation}
             </div>
 
             <div class="result-item savings">
-                Estimated Monthly Savings: $${data.monthlySavings}
+                Estimated Monthly Savings: $${auditData.monthlySavings}
             </div>
 
             <div class="result-item savings">
-                Estimated Annual Savings: $${data.annualSavings}
+                Estimated Annual Savings: $${auditData.annualSavings}
             </div>
 
             <div class="recommendation">
                 <strong>AI Summary:</strong><br><br>
-                ${data.summary}
+                ${auditData.summary}
             </div>
 
         </div>
 
     `;
 
-});
+}
