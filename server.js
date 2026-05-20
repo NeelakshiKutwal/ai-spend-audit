@@ -1,15 +1,20 @@
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-app.use(express.static("frontend"));
+app.use(express.static(path.join(__dirname, "frontend")));
 
 app.get("/", (req, res) => {
-    res.send("AI Spend Audit Running");
+    res.sendFile(path.join(__dirname, "frontend", "index.html"));
+});
+
+app.get("/result", (req, res) => {
+    res.sendFile(path.join(__dirname, "frontend", "result.html"));
 });
 
 app.post("/audit", (req, res) => {
@@ -81,6 +86,8 @@ app.post("/audit", (req, res) => {
 
 });
 
-app.listen(3000, () => {
-    console.log("Server running on port 3000");
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
