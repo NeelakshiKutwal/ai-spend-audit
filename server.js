@@ -21,66 +21,123 @@ app.post("/audit", (req, res) => {
 
     const { tool, plan, spend, teamSize } = req.body;
 
-    let recommendation = "";
-    let savings = 0;
-
     const numericSpend = Number(spend);
     const numericTeamSize = Number(teamSize);
 
-    if (plan === "Enterprise" && numericTeamSize < 10) {
+    let recommendation = "";
+    let savings = 0;
 
-        recommendation =
-            "Enterprise plans are usually excessive for teams under 10 users. Consider switching to a Team or Business plan.";
+    if (tool === "ChatGPT") {
 
-        savings = Math.round(numericSpend * 0.45);
+        if (plan === "Team" && numericTeamSize <= 2) {
+
+            recommendation =
+                "ChatGPT Team may be unnecessary for a very small team. ChatGPT Plus can provide similar functionality at lower cost.";
+
+            savings = 25 * numericTeamSize;
+
+        }
+
+        else if (plan === "Enterprise" && numericTeamSize < 10) {
+
+            recommendation =
+                "Enterprise plans are usually cost-effective only for larger organizations. Smaller teams can reduce spend using Team plans.";
+
+            savings = Math.round(numericSpend * 0.40);
+
+        }
+
+        else {
+
+            recommendation =
+                "Your ChatGPT setup appears reasonably optimized for your current usage.";
+
+            savings = 0;
+
+        }
 
     }
 
-    else if (plan === "Business" && numericTeamSize <= 5) {
+    else if (tool === "Claude") {
 
-        recommendation =
-            "Business tier may be unnecessary for a smaller team. Team plans can often provide similar value at lower cost.";
+        if (numericSpend > 200) {
 
-        savings = Math.round(numericSpend * 0.30);
+            recommendation =
+                "Your Claude spend is relatively high. Consider consolidating workflows or using discounted infrastructure credits.";
+
+            savings = Math.round(numericSpend * 0.20);
+
+        }
+
+        else {
+
+            recommendation =
+                "Your Claude usage appears appropriately sized.";
+
+            savings = 0;
+
+        }
 
     }
 
-    else if (plan === "Team" && numericTeamSize <= 2) {
+    else if (tool === "Cursor") {
 
-        recommendation =
-            "Small teams can typically operate efficiently on lower-tier plans without losing critical features.";
+        if (plan === "Business" && numericTeamSize <= 5) {
 
-        savings = Math.round(numericSpend * 0.40);
+            recommendation =
+                "Cursor Business may be excessive for smaller engineering teams. Cursor Pro often provides sufficient functionality.";
 
-    }
+            savings = Math.round(numericSpend * 0.35);
 
-    else if (numericSpend > 500) {
+        }
 
-        recommendation =
-            "Your AI tooling costs are relatively high. Consolidating tools or using discounted infrastructure credits through providers like Credex may significantly reduce spend.";
+        else {
 
-        savings = Math.round(numericSpend * 0.20);
+            recommendation =
+                "Your Cursor configuration appears cost-efficient.";
+
+            savings = 0;
+
+        }
 
     }
 
     else {
 
-        recommendation =
-            "Your current AI tooling setup appears reasonably optimized for your team size and spend level.";
+        if (numericSpend > 500) {
 
-        savings = 0;
+            recommendation =
+                "Your AI infrastructure costs are relatively high. Reviewing vendor plans and discounted credits may reduce operational expenses.";
+
+            savings = Math.round(numericSpend * 0.15);
+
+        }
+
+        else {
+
+            recommendation =
+                "Your current AI tooling stack appears reasonably optimized.";
+
+            savings = 0;
+
+        }
 
     }
 
     res.json({
+
         tool,
         currentPlan: plan,
-        monthlySpend: spend,
+        monthlySpend: numericSpend,
+
         recommendation,
+
         monthlySavings: savings,
+
         annualSavings: savings * 12,
 
-        summary: `Your team is currently spending approximately $${numericSpend} monthly on ${tool}. Based on your selected ${plan} plan and team size of ${numericTeamSize}, there may be opportunities to reduce AI infrastructure costs while maintaining similar productivity and feature access.`
+        summary:
+            `Your organization currently spends approximately $${numericSpend} monthly on ${tool}. Based on the selected ${plan} plan and team size of ${numericTeamSize}, this audit identified potential optimization opportunities that could reduce recurring AI tooling expenses while preserving core productivity capabilities.`
 
     });
 
