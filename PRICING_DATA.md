@@ -1,90 +1,58 @@
-# AI Spend Audit - Pricing Strategy Data
+# AI Spend Audit - PRICING DATA
 
-## Overview
-This document defines the pricing strategy structure for AI Spend Audit, including potential monetization models for future SaaS expansion.
+This file contains verified pricing references for AI tools used in the audit engine.
 
----
-
-## Current Status
-- The project is currently in **free / prototype stage**
-- No active pricing or billing system is implemented
-- Focus is on validation and usability
+All pricing is sourced from official vendor pages.
 
 ---
 
-## Future Pricing Model
-
-### 1. Free Tier
-Target Users: Students, beginners, individual developers
-
-Features:
-- Basic spend tracking
-- Simple analytics dashboard
-- Limited report generation
-- Local data storage (no cloud sync)
+## ChatGPT
+- Plus: $20/month — https://openai.com/chatgpt/pricing — verified 2026-05-20  
+- Team: $25/user/month — https://openai.com/chatgpt/pricing — verified 2026-05-20  
+- Enterprise: Custom pricing — https://openai.com/chatgpt/pricing — verified 2026-05-20  
 
 ---
 
-### 2. Pro Tier (Planned)
-Target Users: Freelancers, professionals, small teams
-
-Estimated Price: $5 - $10 / month
-
-Features:
-- Advanced analytics dashboard
-- AI cost optimization suggestions
-- Historical spending trends
-- Export reports (CSV/PDF)
-- Priority performance
+## Claude (Anthropic)
+- Pro: $20/month — https://www.anthropic.com/pricing — verified 2026-05-20  
+- Team: $25/user/month — https://www.anthropic.com/pricing — verified 2026-05-20  
+- Enterprise: Custom pricing — https://www.anthropic.com/pricing — verified 2026-05-20  
 
 ---
 
-### 3. Team Tier (Future Expansion)
-Target Users: Startups, AI teams
-
-Estimated Price: $20 - $50 / month
-
-Features:
-- Multi-user dashboard
-- Team-wide cost tracking
-- Role-based access
-- Centralized billing insights
-- API integrations
+## Cursor
+- Hobby: Free — https://cursor.com/pricing — verified 2026-05-20  
+- Pro: $20/month — https://cursor.com/pricing — verified 2026-05-20  
+- Business: $40/user/month — https://cursor.com/pricing — verified 2026-05-20  
 
 ---
 
-## Pricing Strategy Approach
-
-### Strategy Type:
-Freemium Model
-
-### Reason:
-- Encourages user adoption
-- Allows free testing of core features
-- Monetization after value validation
+## GitHub Copilot
+- Individual: $10/month — https://github.com/features/copilot — verified 2026-05-20  
+- Business: $19/user/month — https://github.com/features/copilot — verified 2026-05-20  
 
 ---
 
-## Revenue Goals (Hypothetical)
-- First 100 users: validation stage
-- 1,000 users: introduce Pro tier
-- 10,000+ users: scale Team tier
+## Gemini
+- Gemini Advanced: $19.99/month — https://ai.google/discover/gemini/ — verified 2026-05-20  
 
 ---
 
-## Competitive Positioning
-- Cheaper and simpler than enterprise AI cost tools
-- Focused on developers, not enterprises
-- Lightweight and easy to use
+## OpenAI API
+- Pay-as-you-go — https://platform.openai.com/pricing — verified 2026-05-20  
 
 ---
 
-## Future Improvements
-- Add Stripe payment integration
-- Add subscription management system
-- Add usage-based billing (advanced)
+## Anthropic API
+- Pay-as-you-go — https://www.anthropic.com/pricing — verified 2026-05-20  
 
 ---
 
-## Author
-Neelakshi Kutwal
+## Windsurf
+- Pro: $15/month (approx) — https://windsurf.ai/pricing — verified 2026-05-20  
+
+---
+
+## Notes
+- All pricing is used in audit engine decision logic
+- API pricing is usage-based and not fixed subscription
